@@ -12,11 +12,8 @@
 </head>
 <body>
 	<%
-		String heightStr = request.getParameter("height");
-		String weightStr = request.getParameter("weight");
-		
-		int height = Integer.valueOf(heightStr);
-		int weight = Integer.valueOf(weightStr);
+		int height = Integer.valueOf(request.getParameter("height"));
+		int weight = Integer.valueOf(request.getParameter("weight"));
 		
 		double BMI =  weight / ((height / 100.0) * (height / 100.0));
 		String result = null;
@@ -33,8 +30,8 @@
 	%>
 	
 	<div class="container">
-		<div class="display-4">BMI 측정 결과</div>
-		<div class="display-3">당신은 <%= result %>입니다.</div>
+		<h1>BMI 측정 결과</h1>
+		<div class="display-4 mb-2">당신은 <span class="text-info"><%= result %></span>입니다.</div>
 		<p>BMI 수치 : <%= BMI %></p>
 	</div>
 </body>
