@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BMI 계산</title>
+<title>계산기</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -12,27 +12,41 @@
 </head>
 <body>
 	<%
-		int height = Integer.valueOf(request.getParameter("height"));
-		int weight = Integer.valueOf(request.getParameter("weight"));
+		int number1 = Integer.valueOf(request.getParameter("number1"));
+		String operator = request.getParameter("operator");
+		int number2 = Integer.valueOf(request.getParameter("number2"));
 		
-		double BMI =  weight / ((height / 100.0) * (height / 100.0));
-		String result = null;
+		double result = 0;
+		String printOperator = null;
 		
-		if (BMI <= 20) {
-			result = "저체중";
-		} else if (BMI <= 25) {
-			result = "정상";
-		} else if (BMI <= 30) {
-			result = "과체중";
-		} else {
-			result = "비만";
+		switch (operator) {
+		case "plus":
+			result = number1 + number2;
+			printOperator = "+";
+			break;
+		case "minus":
+			result = number1 - number2;
+			printOperator = "-";
+			break;
+		case "multiple":
+			result = number1 * number2;
+			printOperator = "X";
+			break;
+		case "divide":
+			result = (double)number1 / number2;
+			printOperator = "÷";
+			break;
 		}
 	%>
 	
 	<div class="container">
-		<h1>BMI 측정 결과</h1>
-		<div class="display-4">당신은 <span class="text-info"><%= result %></span> 입니다.</div>
-		<div>BMI 수치 : <%= BMI %></div>
+		<h1>계산 결과</h1>
+		<div class="display-4">
+			<%
+				out.print(number1 + " " + printOperator + " " + number2 + " = ");
+			%>
+			<span class="text-primary"><%= result %></span>
+		</div>
 	</div>
 </body>
 </html>
