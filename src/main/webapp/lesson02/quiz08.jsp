@@ -71,12 +71,12 @@
 			</thead>
 			<tbody>
 			<%
-				for (Map<String, Object> book : list) {
+				for (Map<String, Object> item : list) {
 			%>
 				<tr>
-					<td><%= book.get("id") %></td>
-					<td><img src=<%= book.get("image") %> width="60"></td>
-					<td><a href="/lesson02/quiz08_1.jsp?id=<%= book.get("id") %>"><%= book.get("title") %></a></td>
+					<td><%= item.get("id") %></td>
+					<td><img src="<%= item.get("image") %>" alt="표지" width="50"></td>
+					<td><a href="/lesson02/quiz08_1.jsp?id=<%= item.get("id") %>"><%= item.get("title") %></a></td>
 				</tr>
 			<%
 				}
