@@ -6,7 +6,7 @@
 </div>
 <div class="search col-10 d-flex align-items-center">
 	<div>
-	 	<form method="get" action="/lesson03/quiz02/template.jsp">
+	 	<form method="get" action="/lesson03/quiz02/detail_template.jsp">
 			<div class="input-group">
 				<input type="text" class="form-control" name="title">
 				<div class="input-group-append">

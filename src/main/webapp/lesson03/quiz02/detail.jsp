@@ -80,38 +80,49 @@
 	musicList.add(musicInfo);
 %>
 
+<%
+	String title = request.getParameter("title");
+	
+	for (Map<String, Object> item : musicList) {		
+		if (item.get("title").equals(title)) {
+%>
+<h4 class="font-weight-bold">곡 정보</h4>
 <div class="d-flex border border-success p-3">
 	<div class="mr-3">
-		<img src="<%= artistInfo.get("photo") %>" alt="가수 이미지" width="150" height="150">
+		<img src="<%= item.get("thumbnail") %>" alt="앨범 이미지" width="150" height="150">		
 	</div>
 	<div>
-		<h3 class="font-weight-bold"><%= artistInfo.get("name") %></h3>
-		<div><%= artistInfo.get("agency") %></div>
-		<div><%= artistInfo.get("debute") %> 데뷔</div>
+		<h2><%= item.get("title") %></h2>
+		<div class="text-success font-weight-bold mb-2"><%= item.get("singer") %></div>
+		<table>
+			<tr>
+				<td>앨범</td>
+				<td><%= item.get("album") %></td>
+			</tr>
+			<tr>
+				<td class="pr-3">재생시간</td>
+				<%
+					int time = (int)item.get("time");
+				%>
+				<td><%= time / 60 %> : <%= time % 60 %></td>
+			</tr>
+			<tr>
+				<td>작곡가</td>
+				<td><%= item.get("composer") %></td>
+			</tr>
+			<tr>
+				<td>작사가</td>
+				<td><%= item.get("lyricist") %></td>
+			</tr>
+		</table>
 	</div>
 </div>
 <div class="mt-3">
-	<h4 class="font-weight-bold">곡 목록</h4>
-	<table class="table text-center">
-		<thead>
-			<tr>
-				<th>no</th>
-				<th>제목</th>
-				<th>앨범</th>
-			</tr>
-		</thead>
-		<tbody>
-		<%
-			for (Map<String, Object> item : musicList) {
-		%>
-			<tr>
-				<td><%= item.get("id") %></td>
-				<td><a href="/lesson03/quiz02/detail_template.jsp?title=<%= item.get("title") %>"><%= item.get("title") %></a></td>
-				<td><%= item.get("album") %></td>
-			</tr>
-		<%
-			}
-		%>
-		</tbody>
-	</table>
+	<h4 class="font-weight-bold">가사</h4>
+	<hr>
+	<div>가사 정보 없음</div>
 </div>
+<%
+		}
+	}
+%>

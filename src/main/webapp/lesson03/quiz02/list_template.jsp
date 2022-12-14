@@ -16,7 +16,7 @@
 		#wrap {width:1200px; margin:auto;}
 		header {height:100px;}
 		nav {height:40px;}
-		.contents {height:auto;}
+		.contents {min-height:500px;}
 		footer {height:100px;}
 		
 		.input-group {width:500px;}

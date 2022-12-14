@@ -16,7 +16,7 @@
 		#wrap {width:1200px; margin:auto;}
 		header {height:100px;}
 		nav {height:40px;}
-		.contents {height:auto;}
+		.contents {min-height:500px;}
 		footer {height:100px;}
 		
 		.input-group {width:500px;}
@@ -31,7 +31,7 @@
 			<jsp:include page="menu.jsp" />
 		</nav>
 		<section class="contents mt-3">
-			<jsp:include page="list.jsp" />
+			<jsp:include page="detail.jsp" />
 		</section>
 		<hr>
 		<footer>
