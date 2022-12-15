@@ -80,9 +80,9 @@
 	musicList.add(musicInfo);
 %>
 
-<div class="d-flex border border-success p-3">
+<div class="d-flex border border-success p-3 mt-3">
 	<div class="mr-3">
-		<img src="<%= artistInfo.get("photo") %>" alt="가수 이미지" width="150" height="150">
+		<img src="<%= artistInfo.get("photo") %>" alt="가수 이미지" width="150">
 	</div>
 	<div>
 		<h3 class="font-weight-bold"><%= artistInfo.get("name") %></h3>
@@ -106,7 +106,7 @@
 		%>
 			<tr>
 				<td><%= item.get("id") %></td>
-				<td><a href="/lesson03/quiz02/detail_template.jsp?title=<%= item.get("title") %>"><%= item.get("title") %></a></td>
+				<td><a href="/lesson03/quiz02/detail_template.jsp?id=<%= item.get("id") %>"><%= item.get("title") %></a></td>
 				<td><%= item.get("album") %></td>
 			</tr>
 		<%

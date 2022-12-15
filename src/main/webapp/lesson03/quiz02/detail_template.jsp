@@ -20,6 +20,7 @@
 		footer {height:100px;}
 		
 		.input-group {width:500px;}
+		.music-info-text {font-size:12px; color:#777;}
 	</style>
 </head>
 <body>
@@ -30,7 +31,7 @@
 		<nav>
 			<jsp:include page="menu.jsp" />
 		</nav>
-		<section class="contents mt-3">
+		<section class="contents">
 			<jsp:include page="detail.jsp" />
 		</section>
 		<hr>

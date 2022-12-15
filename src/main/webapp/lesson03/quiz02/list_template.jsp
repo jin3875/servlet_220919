@@ -30,7 +30,7 @@
 		<nav>
 			<jsp:include page="menu.jsp" />
 		</nav>
-		<section class="contents mt-3">
+		<section class="contents">
 			<jsp:include page="list.jsp" />
 		</section>
 		<hr>
