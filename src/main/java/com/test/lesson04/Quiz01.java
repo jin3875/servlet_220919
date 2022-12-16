@@ -19,36 +19,38 @@ public class Quiz01 extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/plain");
 		
-		MysqlService ms = MysqlService.getInstance();
-		ms.connect();
+		MysqlService mysqlService = MysqlService.getInstance();
+		mysqlService.connect();
 		
 		String insertQuery = "insert into `real_estate`"
-				+ "(`realtorId`, `address`, `area`, `type`, `price`)"
+				+ "(`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`)"
 				+ "values"
-				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000);";
+				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, null)";
 		
 		try {
-			ms.update(insertQuery);
+			mysqlService.update(insertQuery);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
 		
-		String selectQuery = "select * from `real_estate` order by `id` desc limit 10";
+		String selectQuery = "select `address`, `area`, `type` from `real_estate` order by `id` desc limit 10";
 		PrintWriter out = response.getWriter();
 		
 		try {
-			ResultSet resultSet = ms.select(selectQuery);
+			ResultSet rs = mysqlService.select(selectQuery);
 			
-			while (resultSet.next()) {
-				out.print("매물 주소 : " + resultSet.getString("address"));
-				out.print(", 면적 : " + resultSet.getInt("area"));
-				out.println(", 타입 : " + resultSet.getString("type"));
+			while (rs.next()) {
+				String address = rs.getString("address");
+				int area = rs.getInt("area");
+				String type = rs.getString("type");
+				
+				out.println("매물 주소 : " + address + ", 면적 : " + area + ", 타입 : " + type);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		ms.disconnect();
+		mysqlService.disconnect();
 	}
 
 }
