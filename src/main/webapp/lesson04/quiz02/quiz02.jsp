@@ -14,6 +14,8 @@
 </head>
 <body>
 <%--
+	1) 테이블 생성
+	
 	create table `bookmark` (
 		`id` int not null auto_increment primary key
 		, `name` varchar(16) not null
@@ -22,6 +24,8 @@
 		, `updatedAt` timestamp DEFAULT current_timestamp
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 	
+	2) 데이터 저장
+	
 	insert into `bookmark`
 	(`name`, `url`, `createdAt`, `updatedAt`)
 	values
@@ -29,8 +33,6 @@
 	, ('구글', 'https://google.com', now(), now())
 	, ('네이버', 'https://naver.com', now(), now())
 	, ('다음', 'https://daum.com', now(), now());
-	
-	select * from `bookmark` order by `id` desc;
 --%>
 
 <%

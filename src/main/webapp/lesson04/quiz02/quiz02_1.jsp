@@ -13,16 +13,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-<%
-	// DB 연결
-	MysqlService ms = MysqlService.getInstance();
-	ms.connect();
-	
-	// DB select query
-	String selectQuery = "select * from `bookmark`";
-	
-	ResultSet rs = ms.select(selectQuery);
-%>
 	<div class="container">
 		<h1>즐겨찾기 추가</h1>
 		<form method="post" action="/lesson04/quiz02_insert">
@@ -30,13 +20,8 @@
 			<input type="text" class="form-control col-3" name="name">
 			<div class="mt-3">사이트 주소 :</div>
 			<input type="text" class="form-control col-6" name="url">
-			<input type="button" class="btn btn-success mt-3" value="추가">
+			<input type="submit" class="btn btn-success mt-3" value="추가">
 		</form>
 	</div>
-
-<%
-	// DB 연결 해제
-	ms.disconnect();
-%>
 </body>
 </html>

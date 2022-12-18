@@ -22,6 +22,7 @@ public class Quiz02Delete extends HttpServlet {
 		ms.connect();
 		
 		String deleteQuery= "delete from `bookmark` where id = " + id;
+		
 		try {
 			ms.update(deleteQuery);
 		} catch (SQLException e) {
