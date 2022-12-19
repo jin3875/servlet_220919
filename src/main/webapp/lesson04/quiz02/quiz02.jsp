@@ -16,17 +16,17 @@
 <%--
 	1) 테이블 생성
 	
-	create table `bookmark` (
+	create table `favorite` (
 		`id` int not null auto_increment primary key
 		, `name` varchar(16) not null
-		, `url` varchar(128) not null
+		, `url` varchar(512) not null
 		, `createdAt` timestamp DEFAULT current_timestamp
 		, `updatedAt` timestamp DEFAULT current_timestamp
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 	
 	2) 데이터 저장
 	
-	insert into `bookmark`
+	insert into `favorite`
 	(`name`, `url`, `createdAt`, `updatedAt`)
 	values
 	('마론달', 'http://marondal.com', now(), now())
@@ -39,8 +39,7 @@
 	MysqlService ms = MysqlService.getInstance();
 	ms.connect();
 	
-	String selectQuery = "select * from `bookmark` order by `id` desc";
-	
+	String selectQuery = "select * from `favorite` order by `id` desc";
 	ResultSet rs = ms.select(selectQuery);
 %>
 	<div class="container">

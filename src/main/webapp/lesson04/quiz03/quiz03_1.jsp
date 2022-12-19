@@ -21,10 +21,6 @@
 		
 		header, nav {background-color:coral;}
 		nav .nav-link {font-size:18px;}
-		.box {width:30%; height:350px; border-style: solid; border-color:coral;}
-		.box:hover {background-color:darkorange;}
-		.image-box {width:300px; height:200px;}
-		.text-coral {color: coral;}
 	</style>
 </head>
 <body>
@@ -36,7 +32,7 @@
 			<jsp:include page="menu.jsp" />
 		</nav>
 		<section class="contents">
-			<jsp:include page="list.jsp"></jsp:include>
+			<jsp:include page="input.jsp" />
 		</section>
 		<footer class="d-flex justify-content-center align-items-center">
 			<jsp:include page="footer.jsp" />

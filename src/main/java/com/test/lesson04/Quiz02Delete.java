@@ -21,7 +21,7 @@ public class Quiz02Delete extends HttpServlet {
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect();
 		
-		String deleteQuery= "delete from `bookmark` where id = " + id;
+		String deleteQuery = "delete from `favorite` where id = " + id;
 		
 		try {
 			ms.update(deleteQuery);

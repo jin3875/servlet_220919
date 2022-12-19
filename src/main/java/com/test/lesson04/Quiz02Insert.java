@@ -22,10 +22,10 @@ public class Quiz02Insert extends HttpServlet {
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect();
 		
-		String insertQuery="insert into `bookmark`"
-				+ "(`name`, `url`)"
+		String insertQuery = "insert into `favorite`"
+				+ "(`name`, `url`, `createdAt`, `updatedAt`)"
 				+ "values"
-				+ "('" + name + "', '" + url + "')";
+				+ "('" + name + "', '" + url + "', now(), now())";
 		
 		try {
 			ms.update(insertQuery);
